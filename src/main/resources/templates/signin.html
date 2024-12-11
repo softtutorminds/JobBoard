@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Signup Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #8fd3f4);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        form {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transform: scale(0.9);
+            animation: formAppear 1s ease-out forwards;
+        }
+        @keyframes formAppear {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #ff6f91, #ff9671);
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #ff9671, #ff6f91);
+            transform: translateY(-3px);
+        }
+        button:active { transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <form action="/signin" method="post">
+        <h2>Signup</h2>
+        <input type="text" name="username" placeholder="Username" title="Enter your username" required autocomplete="username">
+        <input type="password" name="password" placeholder="Password" title="Enter your password" required autocomplete="new-password">
+        <input type="email" name="email" placeholder="Email" title="Enter your email address" required autocomplete="email">
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

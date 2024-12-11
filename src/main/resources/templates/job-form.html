@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+            display: inline-block;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        input:focus, textarea:focus {
+            box-shadow: 0 0 10px #00ffcc;
+        }
+
+        button {
+            background: linear-gradient(90deg, #00ffcc, #0066ff);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        button:active {
+            transform: scale(1);
+            box-shadow: 0 0 10px #0066ff;
+        }
+
+        /* Add glow animation */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.3), transparent 60%);
+            animation: glow 3s infinite;
+            z-index: -1;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Add a New Job</h1>
+    <form action="/addjob" method="post">
+        <label for="title">Job Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter job title" required><br>
+
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter location" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Enter job description" rows="4" required></textarea><br>
+
+        <button type="submit">Add Job</button>
+    </form>
+</body>
+</html>
